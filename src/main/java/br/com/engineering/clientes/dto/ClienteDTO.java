@@ -16,15 +16,14 @@ public class ClienteDTO implements Serializable {
 
     @NotNull(message = "Não pode ser nulo!")
     @NotEmpty(message = "Preenchimento obrigatório!")
-    @Size(min = 10, max = 50, message = "O tamanho deve ser pelo menos 3 caracteres!")
+    @Size(min = 10, max = 50, message = "O tamanho do nome deve ser entre 10 e 50 caracteres !")
     private String nomeCliente;
 
-    private Integer cpfCliente;
+    private Long cpfCliente;
 
     private String sexoCliente;
 
     private Integer idVendedor;
-
 
     public ClienteDTO() {
     }
@@ -46,9 +45,9 @@ public class ClienteDTO implements Serializable {
 
     public void setNomeCliente(String nomeCliente) { this.nomeCliente = nomeCliente; }
 
-    public Integer getCpfCliente() { return cpfCliente; }
+    public Long getCpfCliente() { return cpfCliente; }
 
-    public void setCpfCliente(Integer cpfCliente) { this.cpfCliente = cpfCliente; }
+    public void setCpfCliente(Long cpfCliente) { this.cpfCliente = cpfCliente; }
 
     public String getSexoCliente() { return sexoCliente; }
 

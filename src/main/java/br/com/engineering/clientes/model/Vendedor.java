@@ -20,15 +20,15 @@ public class Vendedor implements Serializable {
 
     private String nomeVendedor;
 
-    private Integer cpfVendedor;
+    private Long cpfVendedor;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "vendedor")
+    @OneToMany(mappedBy = "vendedor", cascade = CascadeType.ALL)
     private List<Cliente> clientes = new ArrayList<>();
 
     public Vendedor() { }
 
-    public Vendedor(Integer idVendedor, String nomeVendedor, Integer cpfVendedor) {
+    public Vendedor(Integer idVendedor, String nomeVendedor, Long cpfVendedor) {
         this.idVendedor = idVendedor;
         this.nomeVendedor = nomeVendedor;
         this.cpfVendedor = cpfVendedor;
@@ -50,11 +50,11 @@ public class Vendedor implements Serializable {
         this.nomeVendedor = nomeVendedor;
     }
 
-    public Integer getCpfVendedor() {
+    public Long getCpfVendedor() {
         return cpfVendedor;
     }
 
-    public void setCpfVendedor(Integer cpfVendedor) {
+    public void setCpfVendedor(Long cpfVendedor) {
         this.cpfVendedor = cpfVendedor;
     }
 

@@ -9,5 +9,5 @@ import org.springframework.transaction.annotation.Transactional;
 public interface VendedorRepository extends JpaRepository<Vendedor, Integer> {
 
     @Transactional(readOnly = true)
-    Vendedor findByCpfVendedor (Integer cpfVendedor);
+    Vendedor findByCpfVendedor (Long cpfVendedor);
 }

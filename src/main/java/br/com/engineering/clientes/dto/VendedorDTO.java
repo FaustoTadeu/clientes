@@ -17,7 +17,7 @@ public class VendedorDTO implements Serializable {
     @Size(min = 10, max = 50, message = "O tamanho deve ser pelo menos 3 caracteres!")
     private String nomeVendedor;
 
-    private Integer cpfVendedor;
+    private Long cpfVendedor;
 
 
     public VendedorDTO() {
@@ -37,8 +37,8 @@ public class VendedorDTO implements Serializable {
 
     public void setNomeVendedor(String nomeVendedor) { this.nomeVendedor = nomeVendedor; }
 
-    public Integer getCpfVendedor() { return cpfVendedor; }
+    public Long getCpfVendedor() { return cpfVendedor; }
 
-    public void setCpfVendedor(Integer cpfVendedor) { this.cpfVendedor = cpfVendedor; }
+    public void setCpfVendedor(Long cpfVendedor) { this.cpfVendedor = cpfVendedor; }
 
 }

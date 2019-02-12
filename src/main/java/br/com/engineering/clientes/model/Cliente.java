@@ -16,7 +16,7 @@ public class Cliente implements Serializable {
 
     private String nomeCliente;
 
-    private Integer cpfCliente;
+    private Long cpfCliente;
 
     private String sexoCliente;
 
@@ -26,7 +26,15 @@ public class Cliente implements Serializable {
 
     public Cliente() { }
 
-    public Cliente(Integer idCliente, String nomeCliente, Integer cpfCliente, String sexoCliente, Vendedor vendedor) {
+    public Cliente(Integer idCliente, String nomeCliente, Long cpfCliente, String sexoCliente) {
+        this.idCliente = idCliente;
+        this.nomeCliente = nomeCliente;
+        this.cpfCliente = cpfCliente;
+        this.sexoCliente = sexoCliente;
+    }
+
+
+    public Cliente(Integer idCliente, String nomeCliente, Long cpfCliente, String sexoCliente, Vendedor vendedor) {
         this.idCliente = idCliente;
         this.nomeCliente = nomeCliente;
         this.cpfCliente = cpfCliente;
@@ -42,9 +50,9 @@ public class Cliente implements Serializable {
 
     public void setNomeCliente(String nomeCliente) { this.nomeCliente = nomeCliente; }
 
-    public Integer getCpfCliente() { return cpfCliente; }
+    public Long getCpfCliente() { return cpfCliente; }
 
-    public void setCpfCliente(Integer cpfCliente) { this.cpfCliente = cpfCliente; }
+    public void setCpfCliente(Long cpfCliente) { this.cpfCliente = cpfCliente; }
 
     public String getSexoCliente() { return sexoCliente; }
 

@@ -34,7 +34,7 @@ public class VendedorService {
         return obj;
     }
 
-    public Vendedor findByCpfVendedor (Integer cpfVendedor) {
+    public Vendedor findByCpfVendedor (Long cpfVendedor) {
         Vendedor obj  = vendedorRepository.findByCpfVendedor(cpfVendedor);
         if(obj == null) {
             throw  new ObjectNotFoundException("Objeto não encontrado! CPF: " + cpfVendedor + " Tipo: " + Vendedor.class);

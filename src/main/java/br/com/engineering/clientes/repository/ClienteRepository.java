@@ -10,6 +10,6 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 
 
     @Transactional(readOnly = true)
-    Cliente findByCpfCliente (Integer cpfCliente);
+    Cliente findByCpfCliente (Long cpfCliente);
 
 }

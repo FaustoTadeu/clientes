@@ -44,7 +44,7 @@ public class ClienteController {
     @Transactional
     @RequestMapping(value = "/cpf", method = RequestMethod.GET)
     public ResponseEntity<Cliente> findByCpf(@RequestParam(value = "value")String cpf) {
-        Integer IntegerCpfConvert = Integer.valueOf(cpf);
+        Long IntegerCpfConvert = Long.valueOf(cpf);
         Cliente obj = clienteService.findByCpfVendedor(IntegerCpfConvert);
         return ResponseEntity.ok().body(obj);
     }
