@@ -27,6 +27,7 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value ="/{idCliente}", method = RequestMethod.GET)
     public ResponseEntity<Cliente> findClienteById(@PathVariable Integer idCliente) {
         Cliente obj = clienteService.findClienteById(idCliente);
@@ -34,6 +35,7 @@ public class ClienteController {
     }
 
     @Transactional
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<ClienteDTO>> findAllClientes() {
         List<Cliente> listClientes = clienteService.findAllClientes();

@@ -27,12 +27,14 @@ public class VendedorController {
     @Autowired
     private VendedorService VendedorService;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value ="/{idVendedor}", method = RequestMethod.GET)
     public ResponseEntity<Vendedor> findVendedorById(@PathVariable Integer idVendedor) {
         Vendedor obj = VendedorService.findVendedorById(idVendedor);
         return ResponseEntity.ok().body(obj);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @Transactional
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<VendedorDTO>> findAllVendedores() {
@@ -58,7 +60,7 @@ public class VendedorController {
         return ResponseEntity.created(uri).build();
     }
 
-    @CrossOrigin(origins = "http://localhost:8100")
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value ="/{idVendedor}", method = RequestMethod.PUT)
     public ResponseEntity<Void> EditVendedor(@Valid @RequestBody VendedorDTO cliDto, @PathVariable Integer idVendedor) {
         Vendedor cli = VendedorService.fromDTO(cliDto, idVendedor);
