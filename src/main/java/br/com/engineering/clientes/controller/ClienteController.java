@@ -7,7 +7,9 @@ import javax.validation.Valid;
 
 import br.com.engineering.clientes.dto.ClienteDTO;
 import br.com.engineering.clientes.model.Cliente;
+import br.com.engineering.clientes.model.Vendedor;
 import br.com.engineering.clientes.service.ClienteService;
+import br.com.engineering.clientes.service.VendedorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -28,6 +30,9 @@ public class ClienteController {
 
     @Autowired
     private ClienteService clienteService;
+
+    @Autowired
+    private VendedorService vendedorService;
 
     HttpHeaders headers = new HttpHeaders();
 
@@ -52,8 +57,18 @@ public class ClienteController {
     @RequestMapping(value = "/cpf", method = RequestMethod.GET)
     public ResponseEntity<Cliente> findByCpf(@RequestParam(value = "value")String cpf) {
         Long IntegerCpfConvert = Long.valueOf(cpf);
-        Cliente obj = clienteService.findByCpfVendedor(IntegerCpfConvert);
+        Cliente obj = clienteService.findByCpfCliente(IntegerCpfConvert);
         return ResponseEntity.ok().body(obj);
+    }
+
+    @Transactional
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(value = "/vendedor/{idVendedor}", method = RequestMethod.GET)
+    public ResponseEntity<List<ClienteDTO>> findByIdVendedor(@PathVariable Integer idVendedor) {
+        Vendedor vend = vendedorService.findVendedorById(idVendedor);
+        List<Cliente> listClientes = clienteService.findClientesByVendedor(vend);
+        List <ClienteDTO> listClientesDto = listClientes.stream().map(obj -> new ClienteDTO(obj)).collect(Collectors.toList());
+        return ResponseEntity.ok().body(listClientesDto);
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
