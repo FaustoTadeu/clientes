@@ -8,14 +8,15 @@ Teconologias
 - Java 8
 - Maven
 - Spring Framework
+- JPA
+- Banco de dados H2
 
 Instruções 
-- 1 - Baixar o código fonte deste repositrio 
-- 2 - Abrir na IDE de sua prefêrencia
-- 3 - Executar o comando mvn install
-- 4 - Selecionar o arquivo "CleintesApplication"
-- 5 - Selecionar Prjecto->Run Project em sua IDE.
-- 6 – Acessar a url http://localhost:8080
+- 1 - Baixar o código fonte deste repositório 
+- 2 - Instalar o Maven CLI
+- 3 - Acessar a pasta do projeto e executar o comando mvn install
+- 4  - Rodar o comando mvn spring-boot:run 
+- 6 – Acesso através da url http://localhost:8080
 
 São serviçõs providos:
 - GET ~/vendedores - Buscar Todos Vendedores
